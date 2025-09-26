@@ -1,0 +1,30 @@
+.noticia-flex {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+.noticia-col {
+    flex: 1;
+}
+.noticia-texto {
+    padding-right: 16px;
+}
+.noticia-imagen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.noticia-imagen img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+@media (max-width: 900px) {
+    .noticia-flex {
+        flex-direction: column;
+    }
+    .noticia-texto {
+        padding-right: 0;
+    }
+}
