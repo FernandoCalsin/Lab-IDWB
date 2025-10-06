@@ -1,0 +1,58 @@
+h1 {
+    text-align: center;
+}
+p::first-line {
+    font-weight: bold;
+}
+p::first-letter {
+    font-size: 3em;
+    font-family: "Old English text MT", "Goudy old Style", serif;
+    float: left;
+    line-height: 0.5;
+    margin-right: 8px;
+    color: darkred;
+}
+::selection {
+    background: yellow;
+    color: red;
+}
+
+.servicios {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+.servicios::before {
+    content: "--> "; /* Agregué un espacio para que no se pegue al texto */
+    color: blue;
+}
+.servicios::after {
+    content: "<--"; /* Agregué un espacio para que no se pegue al texto */
+    color: green;
+}
+
+
+/*favoritos*/
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}

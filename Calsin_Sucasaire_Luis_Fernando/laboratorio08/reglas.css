@@ -1,0 +1,10 @@
+div p {
+  color: yellow;
+}
+div h2 + p {
+  color: blue;
+}
+div h2 ~ p {
+  color: green;
+}
+
