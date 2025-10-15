@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Inscripción</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="header">Inicio</a>
+        <a href="registro.html" class="header">Registro</a>
+        <a href="lenguajes.html" class="header">Lenguajes</a>
+        <a href="validacion.html" class="header">Validacion</a>
+    </header>
+    <h1>Formulario de Inscripción al Curso</h1>
+
+    <form>
+        <label for="nombre">Nombre</label><br>
+        <input type="text" id="nombre" name="nombre" placeholder="Ingrese nombre">
+        <br><br>
+
+        <label for="apellido">Apellido</label><br>
+        <input type="text" id="apellido" name="apellido" placeholder="Ingrese apellido">
+        <br><br>
+
+        <label for="dni">Documento de identidad</label><br>
+        <input type="number" id="dni" name="dni" placeholder="Ingrese DNI">
+        <br><br>
+
+        <label for="correo">Correo electrónico</label><br>
+        <input type="email" id="correo" name="correo" placeholder="ejemplo@gmail.com">
+        <br><br>
+
+        <h2>Selección de curso</h2>
+        <div>
+            <input type="checkbox" id="curso_dsso" name="curso_dsso" value="dsso">
+            <label for="curso_dsso">DSSO (Desarrollo de software orientado a objetos)</label>
+        </div>
+        <div>
+            <input type="checkbox" id="curso_idw" name="curso_idw" value="idw">
+            <label for="curso_idw">IDW (Introducción al desarrollo web)</label>
+        </div>
+        <div>
+            <input type="checkbox" id="curso_tnd" name="curso_tnd" value="tnd">
+            <label for="curso_tnd">TND (Taller narrativa digital)</label>
+        </div>
+        <br><br>
+
+        <h2>Selección de modalidad</h2>
+        <div>
+            <input type="radio" id="presencial" name="modalidad" value="presencial">
+            <label for="presencial">Presencial</label> </div>
+        <div>
+            <input type="radio" id="virtual" name="modalidad" value="virtual">
+            <label for="virtual">Virtual</label>
+        </div>
+        <br><br>
+
+        <div>
+            <label for="comentarios">comentarios</label>
+            <input type="text" id="comentarios" name="comentarios" placeholder="comentar">
+        </div>
+        <br><br>
+
+        <div>
+            <button type="submit">Enviar</button>
+            <button type="reset">Reset</button>
+        </div>
+    </form>
+</body>
+</html>

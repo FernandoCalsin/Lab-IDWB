@@ -1,0 +1,47 @@
+div p {
+  color: yellow;
+}
+div h2 + p {
+  color: blue;
+}
+div h2 ~ p {
+  color: green;
+}
+
+
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+
+li::before {
+  content: "==> ";
+  font-weight: bold;
+  color: #555;
+}
+
+li {
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+li:nth-child(odd) {
+  background-color: #f0f0f0;
+}
+
+li:nth-child(even) {
+  background-color: #dcdcdc;
+}
+
+li:hover {
+  background-color: #e0e0e0;
+  cursor: pointer;
+}
+
+.hecha::after {
+  content: " \\/";
+  color: green;
+  font-weight: bold;
+}
+

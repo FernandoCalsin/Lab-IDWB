@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="header">Incio</a>
+        <a href="registro.html" class="header">Registro</a>
+        <a href="vailidacion.html" class="header">Validacion</a>
+        <a href="cursos.html" class="header">Cursos</a>
+    </header>
+    <form action="/guardar-preferencias" method="post">
+        <fieldset>
+            <legend>Preferencias de notificaciones</legend>
+            <p>¿como desea  recibir notificaciones</p>
+            <label>
+                <input type="checkbox" name="notificaciones" value="email" checked>
+                Por correo electronico
+            </label>
+        </fieldset>
+        <label>
+            <input type="file" name="subir Foto de perfil">
+        </label>
+        <label>
+            <p>¿Que lenguajes conoces</p>
+            <input type="checkbox" name="HTML">
+            HTMl
+            <input type="checkbox" name="CSS">
+            CSS
+            <input type="checkbox" name="javaScript">
+            javaScript
+            <input type="checkbox" name="Python">
+            Python
+            <input type="checkbox" name="java">
+            java
+            <button type="submit">acceptar</button>
+        </label>
+        <br><br>
+        <label>
+            ¿cuantas horas programas al dia?
+            <input type="number" min="1" max="24" placeholder="00">
+        </label>
+        <br><br>
+        <label>
+            <input type="button" value="Guardar preferencias">
+        </label>
+    </form>
+</body>
+</html>

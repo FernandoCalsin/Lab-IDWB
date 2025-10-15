@@ -1,0 +1,98 @@
+.caja{
+    padding:20px;
+    border: 2px solid black;
+    margin:30px;
+    background: white;
+    color: black;
+    border-radius:8px;
+}
+.con-content{
+    box-sizing: content-box;
+}
+.con-border{
+    box-sizing:border-box;
+}
+.flex-container{
+    display:flex;
+    gap:10px;
+    background: #e6ecf3;
+    padding:10px;
+    justify-content:space-around;
+}
+.flex-item{
+    flex:1;
+    background: black;
+    color: #fff;
+    text-align: center;
+    padding:20px;
+    border-radius:6px;    
+}
+/*Ejercicio05 gridflex.html*/
+/* Estilos generales para el body */
+body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    color: #0b1320;
+    background: #f2f6fb;
+    min-height: 100vh;
+
+    /* Usamos Grid para la maquetación principal de la página (vertical) */
+    display: grid;
+    /* Definimos 4 filas:
+       1. header (altura automática)
+       2. nav (altura automática)
+       3. main (ocupa todo el espacio restante: 1fr)
+       4. footer (altura automática)
+    */
+    grid-template-rows: auto auto 1fr auto; 
+}
+
+/* Estilos para las áreas principales */
+header, footer {
+    background: black;
+    color: white;
+    padding: 16px;
+    text-align: center; /* Corregido el error de tipeo */
+}
+
+nav {
+    background: #e6ecf3;
+    padding: 16px;
+    text-align: center;
+}
+
+/* El contenedor de la sección central (main) */
+main {
+    /* Usamos Flexbox para poner el article y el aside uno al lado del otro */
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+}
+
+/* El contenido principal (ocupa más espacio) */
+article {
+    flex: 3; /* Le decimos que ocupe 3 partes del espacio disponible */
+    background: #fff;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+/* La barra lateral (ocupa menos espacio) */
+aside {
+    flex: 1; /* Le decimos que ocupe 1 parte del espacio disponible */
+    background: #fff;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+/* Estilos para los enlaces del menú */
+nav a {
+    margin: 0 10px;
+    color: #0b1320;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
