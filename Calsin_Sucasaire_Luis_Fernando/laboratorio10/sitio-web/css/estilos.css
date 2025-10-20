@@ -1,0 +1,68 @@
+html{
+    box-sizing:border-box;
+}
+::before,::after{
+    box-sizing:inherit;
+}
+body{
+    margin:0;
+    font-family:'lato',sans-serif;
+    background-color:white;    
+}
+.site-header,.site-footer{
+    background-color:rgb(74, 75, 74);
+    color:white;
+    text-decoration:none;
+    margin:0;
+    font-size:1rem;
+
+    text-align:center;
+    padding:1rem;
+}
+.navegacion a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-size: 1rem;
+}
+.hero{
+    background-color:#5cb85c;
+    color:white;
+    text-align:center;
+    padding:6rem 1rem;
+}
+.hero h1 {
+    font-size: 2.8rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+.hero p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.caracteristicas {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 3rem 1rem;
+    flex-wrap: wrap;
+}
+
+.caja {
+    background-color: gray;
+    padding: 1.5rem 4rem;
+    text-align: center;
+}
+
+.caja p {
+    margin: 0;
+    font-size: 1rem;
+    color: black;
+}
+
+.site-footer p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: white;
+}
