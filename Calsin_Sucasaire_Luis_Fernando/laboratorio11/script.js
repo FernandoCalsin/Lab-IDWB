@@ -20,7 +20,7 @@ function funcionA() {
     alert(`El promedio es ${promedio.toFixed(2)}`);
     console.log(`El promedio es: ${promedio.toFixed(2)}`);
 }
-
+//ejericcio04
 const boton2 = document.getElementById("boton2");
 boton2.addEventListener("click", funcionB);
 
@@ -40,6 +40,7 @@ function funcionB() {
         alert("Adulto mayor");
     }
 }
+//ejericicio05
 const boton3 = document.getElementById("boton3");
 boton3.addEventListener("click",funcionC);
 function funcionC(){
