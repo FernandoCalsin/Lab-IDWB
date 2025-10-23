@@ -44,7 +44,6 @@ function funcionB() {
 const boton3 = document.getElementById("boton3");
 boton3.addEventListener("click",funcionC);
 function funcionC(){
-    let numeros=[]; 
     let contadorPar=0;
     let contadorInpar=0;
     for(let i=0; i<10;i++){
@@ -62,4 +61,20 @@ function funcionC(){
     }
     alert(`La cantidad de pares son ${contadorPar} y La cantidad de inpares son ${contadorInpar}`);
 
+}
+//ejercicio06
+const boton4 = document.getElementById("boton4");
+boton4.addEventListener("click",funcionD);
+function funcionD(){
+    let numero;
+    if(isNaN(numero)){
+        alert("Ingresar solo numeros");
+        return;
+    }
+    for(let i=1;i<=12;i++){
+
+    }
+}
+function concatenar(string a,let b){
+    a=a+b;     
 }
