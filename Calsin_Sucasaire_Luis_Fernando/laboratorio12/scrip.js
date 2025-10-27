@@ -43,6 +43,20 @@ function esMultiplo() {
         alert("no es multiplo");
     }
 }
+//Ejercicio06
+function mayorDeTres(){
+    let numero1=parseInt(prompt("Ingrese el primer numero"));
+    let numero2=parseInt(prompt("Ingrese el numero dos"));
+    let numero3=parseInt(prompt("Ingrese el numero tres"));
+    let mayor=numero1;
+    if(mayor<numero2){
+        mayor=numero2;
+    }
+    if(mayor<numero3){
+        mayor=numero3;
+    }
+    alert("el numero mayor es: "+mayor);
+}
 //Ejericicio08
 function convertirAMayusculas(){
     let palabra = prompt("Escribe una palabra:");
@@ -53,3 +67,4 @@ function convertirAMayusculas(){
         alert("No ingresaste ninguna palabra.");
     }
 }
+
