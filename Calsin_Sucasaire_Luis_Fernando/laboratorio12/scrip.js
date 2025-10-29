@@ -57,6 +57,23 @@ function mayorDeTres(){
     }
     alert("el numero mayor es: "+mayor);
 }
+//Ejericicio07
+function promedioTres(){
+    let suma=0;
+    for(let i = 0;i<3;i++){
+        let numero=parseInt(prompt(`Ingrese numero ${i+1}`));
+        if(isNaN(numero)){
+            alert("Numero no valido");
+            i--;
+            continue;
+        }else{
+            suma+=numero;
+        }
+    }
+    let promedio= suma/3;
+    alert(`El promedio es ${promedio}`);
+
+}
 //Ejericicio08
 function convertirAMayusculas(){
     let palabra = prompt("Escribe una palabra:");
@@ -67,4 +84,63 @@ function convertirAMayusculas(){
         alert("No ingresaste ninguna palabra.");
     }
 }
+//Ejercicio09
+function calcularDescuento(){
+    let precio = parseInt(prompt("Ingrese precio"));
+    let porcentaje = parseInt(prompt("Ingrese en porcentaje el descuento"));
+    let descuento = (precio*porcentaje)/100;
+    alert(`El descuento es de ${descuento} \n y lo que deves pagar es: ${precio-descuento}`);
+}
+//Ejericicio10
+const saludarUsuario =()=>{
+    let nombreUsuario;
+    while(!nombreUsuario){
+        nombreUsuario = prompt("Ingrese nombre");
+    }
+    alert("Hola "+nombreUsuario);
+}
+//Ejercicio11
+const esPositivo=()=>{
+    let numero;
+    while(isNaN(numero)){
+        let inputUsuario=prompt("Ingrese numero");
+        numero =parseInt(inputUsuario);
+    }
+    if(numero>0){
+        alert(`Su numero ${numero} ingresado es positivo`);
+    }else{
+        alert(`Su numero ${numero} ingresado no es positivo`);
+    }
+}
+//Ejercicio12
+const aMayusculas = (texto) => texto.toUpperCase();
+const agregarSigno = (texto) => `${texto}!`;
 
+const componerTransformaciones = (f1, f2) => {
+    return (texto) => f2(f1(texto));
+};
+const transformar = componerTransformaciones(aMayusculas, agregarSigno);
+function pedirYTransformar() {
+    let entrada = prompt("Ingresa el texto a transformar:");
+
+    if (entrada) {
+        let resultado = transformar(entrada);
+        alert(resultado);
+    } else {
+        alert("No ingresaste nada.");
+    }
+}
+//Ejericicio13
+const limpiarEspacio=(texto)=>texto.replace(/\s/g, '');
+const contarLetras=(textoSinEspacio)=>textoSinEspacio.length;
+function procesarTexto(){
+    let textoUsuario =prompt("Ingrese texto");
+    if(textoUsuario){
+        let textoSinEspacio =limpiarEspacio(textoUsuario);
+        let textoCantidadLetras=contarLetras(textoSinEspacio);
+        alert("El texto sin espacio es:"+textoSinEspacio+
+            "\nCantidad de palabras: "+textoCantidadLetras);
+    }else{
+        alert("No ingresaste nada.");
+    }
+}

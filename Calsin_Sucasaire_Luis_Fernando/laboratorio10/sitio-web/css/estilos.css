@@ -1,68 +1,114 @@
-html{
-    box-sizing:border-box;
+html {
+    box-sizing: border-box;
 }
-::before,::after{
-    box-sizing:inherit;
-}
-body{
-    margin:0;
-    font-family:'lato',sans-serif;
-    background-color:white;    
-}
-.site-header,.site-footer{
-    background-color:rgb(74, 75, 74);
-    color:white;
-    text-decoration:none;
-    margin:0;
-    font-size:1rem;
+*, *::before, *::after {
+    box-sizing: inherit;}
 
-    text-align:center;
-    padding:1rem;
+body {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    background-color: white;
 }
+.site-header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
 .navegacion a {
     color: white;
     text-decoration: none;
     margin: 0 1rem;
     font-size: 1rem;
 }
-.hero{
-    background-color:#5cb85c;
-    color:white;
-    text-align:center;
-    padding:6rem 1rem;
+.hero {
+    background-color: #5cb85c;
+    color: white;
+    text-align: center;
+    padding: 6rem 1rem;
 }
 .hero h1 {
-    font-size: 2.8rem;
-    margin-top: 0;
+    font-size: 2rem;
     margin-bottom: 1rem;
 }
+
 .hero p {
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin: 0;
 }
-
 .caracteristicas {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 1rem;
     padding: 3rem 1rem;
     flex-wrap: wrap;
+    background-color: white;
 }
-
 .caja {
-    background-color: gray;
-    padding: 1.5rem 4rem;
+    background-color: #f7f7f7;
+    padding: 1.5rem 3rem;
+    border-radius: 5px;
     text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .caja p {
     margin: 0;
     font-size: 1rem;
-    color: black;
+    color: #333;
+}
+.site-footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
 }
 
 .site-footer p {
     margin: 0;
     font-size: 0.9rem;
-    color: white;
 }
+
+/* ----- TITULOS DE PAGINA ----- */
+main h1 {
+    text-align: center;
+    margin-top: 2rem;
+    color: #333;
+    font-size: 1.8rem;
+}
+
+
+.caracteristicas {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 3rem 1rem;
+    flex-wrap: wrap;
+    background-color: white;
+}
+.caja {
+    background-color: #f7f7f7;
+    padding: 1.5rem 3rem;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    min-width: 200px;
+}
+.caja p {
+    margin: 0;
+    font-size: 1rem;
+    color: #333;
+    font-weight: 500;
+}
+.sitio-footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+.sitio-footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
