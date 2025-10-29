@@ -1,3 +1,4 @@
+//Ejercicio04
 function filtrarYTransformar(arr){
     let filArreglo=arr;
     for(let i=filArreglo.length-1;i>=0;i--){
@@ -10,8 +11,7 @@ function filtrarYTransformar(arr){
     }
     let suma=0;
     filArreglo.forEach(element => {
-        suma+=element;        
-    });
+        suma+=element;});
     return suma;
 }
 function ejecutar01(){
@@ -29,6 +29,7 @@ function ejecutar01(){
     let sumaTotal=filtrarYTransformar(numerosArreglo);
     alert(`La suma total quitando negativos y elevando al cuadrado del arreglo ingresado es: ${sumaTotal}`);
 }
+//Ejercicio05
 function redondearPalabras(texto){
     let arregloPalabra=texto.split(" ");
     arregloPalabra.sort();
@@ -40,3 +41,4 @@ function ejecutar02(){
     let textoArreglo=redondearPalabras(texto);
     alert(textoArreglo);
 }
+//Ejercicio06

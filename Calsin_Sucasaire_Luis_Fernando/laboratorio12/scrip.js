@@ -182,4 +182,36 @@ const ejecutarCalculadora=()=>{
     alert(mensajeResultados);
 };
 //Ejercicio15
+function crearContador(valorInicial){
+    let contador=valorInicial;
+    function incrementar(){
+        contador++;
+        return contador;
+    };
+    function resetear(){
+        contador=valorInicial;
+        return contador;
+    };
+    return{
+        incrementar:incrementar,
+        resetear:resetear
+    };
+} 
+const miControlador=crearContador(0);
+const resultadoDiv =document.getElementById("resultadoContador");
+const botonIncrementar=document.getElementById("botonIncrementar");
+const botonReseteo=document.getElementById("botonReseteo");
+function actualizarDisplay(nuevoValor){
+    resultadoDiv.textContent=nuevoValor;
+}
+botonIncrementar.addEventListener("click",()=>{
+    const nuevoValor=miControlador.incrementar();
+    actualizarDisplay(nuevoValor);
+})
+botonReseteo.addEventListener("click",()=>{
+    const nuevoValor=miControlador.resetear();
+    actualizarDisplay(nuevoValor);
+})
+
+
 
