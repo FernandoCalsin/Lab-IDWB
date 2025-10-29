@@ -131,9 +131,9 @@ function pedirYTransformar() {
     }
 }
 //Ejericicio13
-const limpiarEspacio=(texto)=>texto.replace(/\s/g, '');
-const contarLetras=(textoSinEspacio)=>textoSinEspacio.length;
 function procesarTexto(){
+    const limpiarEspacio=(texto)=>texto.replace(/\s/g, '');
+    const contarLetras=(textoSinEspacio)=>textoSinEspacio.length;
     let textoUsuario =prompt("Ingrese texto");
     if(textoUsuario){
         let textoSinEspacio =limpiarEspacio(textoUsuario);
@@ -144,3 +144,42 @@ function procesarTexto(){
         alert("No ingresaste nada.");
     }
 }
+
+//Ejercicio14
+const operacionesMatematicas=(numero1)=>{
+    const suma=(numero2)=>numero1+numero2;
+    const restar=(numero2)=>numero1-numero2;
+    const multiplicacion=(numero2)=>numero1*numero2;
+    const division=(numero2)=>{
+        return numero2!=0 ? numero1/numero2 :"El divisor deve ser diferente de cero";
+         };
+    return{
+        suma,
+        restar,
+        multiplicacion,
+        division
+    };
+};
+const ejecutarCalculadora=()=>{
+    let numero1 =parseInt(prompt("Ingrese numero1"));
+    if(isNaN(numero1)){
+        alert("Valor no valido");
+        return;
+    }
+    const ops=operacionesMatematicas(numero1);
+
+    let numero2 =parseInt(prompt("Ingrese numero2"));
+    if(isNaN(numero2)){
+        alert("Valor no valido");
+        return;
+    }
+    const mensajeResultados=`
+    suma=${ops.suma(numero2)}
+    resta=${ops.restar(numero2)}
+    multiplicar=${ops.multiplicacion(numero2)}
+    dividir=${ops.division(numero2)}
+    `;
+    alert(mensajeResultados);
+};
+//Ejercicio15
+
