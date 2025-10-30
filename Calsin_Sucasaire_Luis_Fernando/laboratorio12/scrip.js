@@ -283,22 +283,16 @@ boton1.addEventListener("click", function() {
   resultado1.textContent = mensaje.replaceAll("\n", " ");
 });
 //Ejerciciio20
-// Funciones aritméticas
 function sumar(a, b) { return a + b; }
 function restar(a, b) { return a - b; }
 function multiplicar(a, b) { return a * b; }
 function dividir(a, b) { return b !== 0 ? a / b : "Error: división entre 0"; }
-
-// Función que recibe otra función como parámetro
 function ejecutarOperacion(fn, x, y) {
   return fn(x, y);
 }
-
-// Conectamos con el HTML
 const boton20 = document.getElementById("operacion");
 const resultado20 = document.getElementById("resultado20");
 
-// Evento al hacer clic
 boton20.addEventListener("click", function() {
   const x = parseFloat(prompt("Ingresa el primer número:"));
   const y = parseFloat(prompt("Ingresa el segundo número:"));
@@ -326,15 +320,12 @@ function filtrarArreglo(arr, callback) {
   }
   return resultado;
 }
-
 function esPar(num) {
   return num % 2 === 0;
 }
-
 function esMayorQueCinco(num) {
   return num > 5;
 }
-
 const boton21 = document.getElementById("filtrar");
 const resultado21 = document.getElementById("resultado21");
 boton21.addEventListener("click", function() {
@@ -392,6 +383,28 @@ boton23.addEventListener("click", function() {
   const resultado = potencia(base, exponente);
   resultado23.textContent = `${base} elevado a ${exponente} = ${resultado}`;
 });
+//ejreciciio24
+function crearSecuencia(inicio, paso) {
+  let actual = inicio;
+  return function() {
+    const valor = actual;
+    actual += paso;
+    return valor;
+  };
+}
+const inicio = parseInt(prompt("Ingresa el número inicial de la secuencia:"));
+const paso = parseInt(prompt("Ingresa el paso o incremento:"));
+const obtenerSiguiente = crearSecuencia(inicio, paso);
+
+const boton24 = document.getElementById("siguienteNumero");
+const resultado24 = document.getElementById("resultado24");
+
+boton24.addEventListener("click", function() {
+  const siguiente = obtenerSiguiente();
+  resultado24.textContent = `Siguiente número: ${siguiente}`;
+});
+
+
 
 
 
