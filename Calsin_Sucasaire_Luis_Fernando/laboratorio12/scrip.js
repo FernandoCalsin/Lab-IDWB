@@ -212,6 +212,193 @@ botonReseteo.addEventListener("click",()=>{
     const nuevoValor=miControlador.resetear();
     actualizarDisplay(nuevoValor);
 })
+//Ejercicio16
+function acumulador(valorInicial) {
+  let total = valorInicial;
+  return function (nuevoValor) {
+    total += nuevoValor;
+    return total;
+  };
+}
+const miAcumulador = acumulador(0);
+const resultado = document.getElementById("resultadoAcumulador");
+const boton = document.getElementById("sumarValorNuevo");
+boton.addEventListener("click", function() {
+  const valor = parseFloat(prompt("Ingresa un número para sumar:"));
+  if (!isNaN(valor)) {
+    const nuevoTotal = miAcumulador(valor);
+    resultado.textContent = nuevoTotal;
+  } else {
+    alert("Por favor, ingresa un número válido.");
+  }
+});
+//Ejericicio17
+function saludo(nombre = "Amigo") {
+  return `¡Hola, ${nombre}! Bienvenido.`;
+}
+const botonSaludo = document.getElementById("saludo");
+const mensaje = document.getElementById("mensajeSaludo");
+
+botonSaludo.addEventListener("click", function() {
+  const nombreUsuario = prompt("¿Cómo te llamas?");
+  const textoSaludo = saludo(nombreUsuario || undefined);
+  mensaje.textContent = textoSaludo;
+});
+//Ejercicio18
+function media(...numeros) {
+  if (numeros.length === 0) return 0;
+  const suma = numeros.reduce((acum, num) => acum + num, 0);
+  return suma / numeros.length;
+}
+const botonMedia = document.getElementById("calcularMedia");
+const resultado18 = document.getElementById("resultadoMedia");
+botonMedia.addEventListener("click", function() {
+  const entrada = prompt("Ingresa varios números separados por comas (ejemplo: 10,20,30):");
+  
+  if (entrada) {
+    const numeros = entrada.split(",").map(num => parseFloat(num.trim()));
+    if (numeros.some(isNaN)) {
+      alert("Por favor, ingresa solo números válidos.");
+      return;
+    }
+    const resultadoMedia = media(...numeros);
+    resultado18.textContent = `La media es: ${resultadoMedia}`;
+  } else {
+    alert("No ingresaste ningún valor.");
+  }
+});
+//Ejerciciio19
+function mostrarDatos(nombre, edad, ...hobbies) {
+  let mensaje = `Nombre: ${nombre}\nEdad: ${edad}\nHobbies: ${hobbies.join(", ")}`;
+  return mensaje;
+}
+const boton1 = document.getElementById("mostrar");
+const resultado1 = document.getElementById("resultado19");
+boton1.addEventListener("click", function() {
+  const nombre = prompt("Ingresa tu nombre:");
+  const edad = prompt("Ingresa tu edad:");
+  const hobbiesEntrada = prompt("Ingresa tus hobbies separados por comas (ejemplo: música, fútbol, leer):");  
+  const hobbies = hobbiesEntrada ? hobbiesEntrada.split(",").map(h => h.trim()) : [];  
+  const mensaje = mostrarDatos(nombre, edad, ...hobbies);
+  resultado1.textContent = mensaje.replaceAll("\n", " ");
+});
+//Ejerciciio20
+// Funciones aritméticas
+function sumar(a, b) { return a + b; }
+function restar(a, b) { return a - b; }
+function multiplicar(a, b) { return a * b; }
+function dividir(a, b) { return b !== 0 ? a / b : "Error: división entre 0"; }
+
+// Función que recibe otra función como parámetro
+function ejecutarOperacion(fn, x, y) {
+  return fn(x, y);
+}
+
+// Conectamos con el HTML
+const boton20 = document.getElementById("operacion");
+const resultado20 = document.getElementById("resultado20");
+
+// Evento al hacer clic
+boton20.addEventListener("click", function() {
+  const x = parseFloat(prompt("Ingresa el primer número:"));
+  const y = parseFloat(prompt("Ingresa el segundo número:"));
+  const tipo = prompt("¿Qué operación quieres realizar? (sumar, restar, multiplicar, dividir):").toLowerCase();
+  let operacion;
+  switch (tipo) {
+    case "sumar": operacion = sumar; break;
+    case "restar": operacion = restar; break;
+    case "multiplicar": operacion = multiplicar; break;
+    case "dividir": operacion = dividir; break;
+    default:
+      alert("Operación no válida");
+      return;
+  }
+  const resultado = ejecutarOperacion(operacion, x, y);
+  resultado20.textContent = `Resultado: ${resultado}`;
+});
+//Ejercicicio21
+function filtrarArreglo(arr, callback) {
+  const resultado = [];
+  for (let elemento of arr) {
+    if (callback(elemento)) {
+      resultado.push(elemento);
+    }
+  }
+  return resultado;
+}
+
+function esPar(num) {
+  return num % 2 === 0;
+}
+
+function esMayorQueCinco(num) {
+  return num > 5;
+}
+
+const boton21 = document.getElementById("filtrar");
+const resultado21 = document.getElementById("resultado21");
+boton21.addEventListener("click", function() {
+  const entrada = prompt("Ingresa números separados por comas (ejemplo: 1,2,3,6,8):");
+  const numeros = entrada.split(",").map(n => parseFloat(n.trim()));
+  const tipo = prompt("Filtrar por: 'pares' o 'mayores que cinco'").toLowerCase();
+  let resultado;
+  if (tipo === "pares") {
+    resultado = filtrarArreglo(numeros, esPar);
+  } else if (tipo === "mayores que cinco") {
+    resultado = filtrarArreglo(numeros, esMayorQueCinco);
+  } else {
+    alert("Opción no válida.");
+    return;
+  }
+  resultado21.textContent = `Resultado: [${resultado.join(", ")}]`;
+});
+//Ejerciciio22
+function descargarArchivo(url, callback) {
+  const resultado22 = document.getElementById("resultado22");
+  resultado22.textContent = "Descargando...";  
+  setTimeout(() => {
+    callback(url);
+  }, 2000);
+}
+function mostrarDescarga(url) {
+  const resultado22 = document.getElementById("resultado22");
+  resultado22.textContent = `Descarga completa de ${url}`;
+}
+const boton22 = document.getElementById("descargar");
+boton22.addEventListener("click", function() {
+  const url = prompt("Ingresa la URL del archivo a descargar:");
+  if (url) {
+    descargarArchivo(url, mostrarDescarga);
+  } else {
+    alert("Por favor, ingresa una URL válida.");
+  }
+});
+//Ejercicio23
+function potencia(base, exponente) {
+  if (exponente === 0) return 1;
+  if (exponente < 0) return 1 / potencia(base, -exponente);
+  return base * potencia(base, exponente - 1);
+}
+
+const boton23 = document.getElementById("calcularPotencia");
+const resultado23 = document.getElementById("resultado23");
+boton23.addEventListener("click", function() {
+  const base = parseFloat(prompt("Ingresa la base:"));
+  const exponente = parseInt(prompt("Ingresa el exponente (puede ser negativo):"));  
+  if (isNaN(base) || isNaN(exponente)) {
+    alert("Por favor ingresa valores numéricos válidos.");
+    return;
+  }
+  const resultado = potencia(base, exponente);
+  resultado23.textContent = `${base} elevado a ${exponente} = ${resultado}`;
+});
+
+
+
+
+
+
+
 
 
 
