@@ -1,21 +1,17 @@
-//Ejercicio01
+//Ejercicio03
 class Redondeo {
   constructor(valor) {
     this.numero = valor;
   }
-
   redondeoAbajo() {
     return Math.floor(this.numero);
   }
-
   redondeoArriba() {
     return Math.ceil(this.numero);
   }
-
   redondeoNormal() {
     return Math.round(this.numero);
   }
-
   toString() {
     return `Redondeo hacia abajo: ${this.redondeoAbajo()}
     Redondeo hacia arriba: ${this.redondeoArriba()}
@@ -30,7 +26,6 @@ function ejecutar1() {
     alert("Error: Por favor, ingrese un valor numérico válido.");
     return;
   }
-
   const resultado = new Redondeo(numero);
   document.getElementById("resultado").textContent = resultado.toString();
 }
@@ -50,7 +45,7 @@ function ejecutar2() {
     alert("Error: Ingrese valores numéricos válidos.");
     return;
   }
-
+//Ejerciccio05
   let numeroAleatorio = generarAleatorioEntero(min, max);
   document.getElementById("resultado2").textContent = 
     `Número aleatorio generado: ${numeroAleatorio}`;
