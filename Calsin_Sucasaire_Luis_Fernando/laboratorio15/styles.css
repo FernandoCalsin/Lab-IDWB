@@ -1,0 +1,22 @@
+.mi-imagen {
+    width: 200px;
+    height: auto;
+    border: 2px solid blue;
+    border-radius: 10px;
+    opacity: 0.7;
+    filter: grayscale(50%);
+}
+.nueva-imagen.jpg{
+    width: 300px;
+    height:auto;
+}
+
+.resaltado {
+    background-color: yellow;
+    font-weight: bold;
+}
+
+.oculto {
+    display: none;
+}
+

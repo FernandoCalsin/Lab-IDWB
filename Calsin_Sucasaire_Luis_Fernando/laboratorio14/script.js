@@ -182,7 +182,6 @@ function ejecutar11() {
         alert("El stock no puede ser negativo");
       }
     }
-
     vender(cantidad) {
       cantidad = Number(cantidad);
       if (cantidad <= this.#stock) {
@@ -208,27 +207,24 @@ ${venta2}
 }
 //Ejercicio12
 function ejecutar12() {
-
   class Producto {
     #nombre;
     #precio;
     #stock;
-
     constructor(nombre, precio, stock) {
-      this.nombre = nombre;
-      this.precio = precio; // setter transforma
-      this.stock = stock;
+      this.nombre = nombre;  // Setter
+      this.precio = precio;  // Setter
+      this.stock = stock;    // Setter
     }
-
     get nombre() {
       return this.#nombre;
     }
     set nombre(valor) {
-      his.#nombre = valor;
-    }  
+      this.#nombre = valor; // ← aquí estaba el error
+    }
     get precio() {
-      return `$${this.#precio.toFixed(2)}`; 
-    } 
+      return `$${this.#precio.toFixed(2)}`;
+    }
     set precio(valor) {
       valor = Number(valor);
       if (!isNaN(valor) && valor > 0) {
@@ -251,7 +247,10 @@ function ejecutar12() {
   }
   let producto1 = new Producto("Chocolate", "12.5", 20);
   let producto2 = new Producto("Caramelos", 4, 50);
-
+  document.getElementById("resultado12").textContent = `
+  Producto 1: ${producto1.nombre} - ${producto1.precio} (Stock: ${producto1.stock})
+  Producto 2: ${producto2.nombre} - ${producto2.precio} (Stock: ${producto2.stock})
+  `;
   document.getElementById("resultado12").textContent = `
 Producto: ${producto1.nombre} - Precio: ${producto1.precio} - Stock: ${producto1.stock}
 Producto: ${producto2.nombre} - Precio: ${producto2.precio} - Stock: ${producto2.stock}
@@ -336,47 +335,6 @@ function ejecutar14() {
   document.getElementById("resultado14").textContent = resultado;
 }
 //Ejericicio15
-function ejecutar15() {
-  class Usuario {
-    constructor(nombre, email) {
-      this.nombre = nombre;
-      this.email = email;
-    }
-    mostrarInfo() {
-      return `Usuario: ${this.nombre} - Email: ${this.email}`;
-    }
-  }
-  class Cliente extends Usuario {
-    constructor(nombre, email, nivelFidelidad) {
-      super(nombre, email);
-      this.nivelFidelidad = nivelFidelidad;
-    }
-    mostrarInfo() {
-      return `Cliente: ${this.nombre} - Email: ${this.email} - Fidelidad: ${this.nivelFidelidad}`;
-    }
-  }
-  class Administrador extends Usuario {
-    constructor(nombre, email) {
-      super(nombre, email);
-      this.permisos = ["crear", "editar", "eliminar"];
-    }
-    mostrarInfo() {
-      return `Administrador: ${this.nombre} - Email: ${this.email} - Permisos: ${this.permisos.join(", ")}`;
-    }
-  }
-  let usuarios = [
-    new Cliente("Ana", "ana@gmail.com", 3),
-    new Administrador("Marco", "marco@empresa.com"),
-    new Cliente("Sofía", "sofia@hotmail.com", 5),
-    new Administrador("Luis", "luis@admin.com")
-  ];
-  let resultado = "";
-  usuarios.forEach(u => {
-    resultado += u.mostrarInfo() + "\n";
-  });
-  document.getElementById("resultado15").textContent = resultado;
-}
-//Ejericicio16
 function ejecutar15() {
   class Usuario {
     constructor(nombre, email) {
@@ -538,7 +496,6 @@ function ejecutar18() {
       return this.productos.map(p => `${p.nombre} - $${p.precio}`).join("\n");
     }
   }
-
   let carrito = new Carrito();
   carrito.agregarProducto(new Producto("Laptop", 1200));
   carrito.agregarProducto(new Producto("Mouse", 50));
