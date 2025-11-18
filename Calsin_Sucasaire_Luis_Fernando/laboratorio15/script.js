@@ -44,3 +44,49 @@ function ejecutar08() {
         index++;
     }
 }
+
+function ejecutar09(){
+    const nuevoParrafo=document.createElement('p');
+    nuevoParrafo.textContent="Elemento insertado con js";
+    const body= document.body;
+    body.appendChild(nuevoParrafo);
+}
+
+function ejecutar10(){
+    const subtituloNuevo=document.createElement('h3');
+    subtituloNuevo.textContent="elemento h3 antes del primer p";
+    const primerP=document.querySelector("p");
+    if(primerP){
+        document.body.insertBefore(subtituloNuevo,primerP);
+    }    
+}
+
+function ejecutar11(){
+    const lista=document.createElement('ul');
+    for(let i=1;i<=5;i++){
+        const li =document.createElement('li');
+        li.textContent=`Elemento ${i}`;
+        lista.appendChild(li);
+    }
+    const section=document.querySelector('section');
+    if(section){
+        section.appendChild(lista);
+    }
+}
+
+function ejecutar12(){
+    const div=document.createElement('div');
+    div.textContent=`Parrafo Remplazado`;
+    const parrafo=document.querySelector(".remplazar");
+    parrafo.replaceWith(div);
+
+}
+
+function ejecutar13(){
+    const parrafos = document.querySelectorAll("p");
+    
+    const ultimo=parrafos[parrafos.length-1];
+    if(ultimo){
+        ultimo.remove();
+    }
+}
