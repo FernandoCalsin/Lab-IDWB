@@ -1,9 +1,10 @@
-function ejecutar03() {
-    const texto = document.querySelectorAll("p");
-    texto.forEach(p => {
-        p.textContent = "Texto cambiado";
-    });
-}
+const boton03 = document.getElementById("boton03");
+
+boton03.addEventListener("click", () => {
+    const texto = document.getElementById("texto03");
+    texto.textContent="Texto Cambiado";
+});
+
 let cambiado= false;
 function ejecutar04(){
     const p=document.getElementById("texto-cambiar");
@@ -40,7 +41,7 @@ function restar() {
 }
 function actualizar() {
     document.getElementById("contador").textContent = valor;
-    mostrarMensaje(""); // limpiar mensaje
+    mostrarMensaje(""); 
 }
 function mostrarMensaje(texto) {
     document.getElementById("mensaje").textContent = texto;
