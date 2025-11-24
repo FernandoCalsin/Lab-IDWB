@@ -6,6 +6,7 @@ boton03.addEventListener("click", () => {
 });
 
 let cambiado= false;
+
 function ejecutar04(){
     const p=document.getElementById("texto-cambiar");
     if(cambiado){
