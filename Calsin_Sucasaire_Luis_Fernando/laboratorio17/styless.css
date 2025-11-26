@@ -8,8 +8,6 @@ button {
   padding: 8px 14px;
   cursor: pointer;
 }
-
-/* Clase reutilizable para ambos outputs */
 .box {
   margin-top: 18px;
   padding: 12px;

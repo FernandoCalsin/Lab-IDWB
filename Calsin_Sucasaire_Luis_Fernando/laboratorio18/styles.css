@@ -1,0 +1,35 @@
+body {
+  background: #1e1e1e;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding-top: 40px;
+}
+
+#btnCargar {
+  padding: 12px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  background: #4a90e2;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+#btnCargar:hover {
+  background: #3272b8;
+}
+
+#resultado {
+  margin-top: 25px;
+  padding: 20px;
+  background: #2b2b2b;
+  border-radius: 10px;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 20px;
+  border: 2px solid #4a90e2;
+  min-height: 40px;
+}
