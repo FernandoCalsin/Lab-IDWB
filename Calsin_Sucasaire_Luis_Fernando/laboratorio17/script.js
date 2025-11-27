@@ -93,7 +93,7 @@ btn7.addEventListener("click", () => {
     }
 });
 
-// Ejercicio 08: Propagación de errores con throw
+// Ejercicio 08:---------------------------------------------------
 const btn8 = document.getElementById("btn8");
 const out8 = document.getElementById("output8");
 btn8.addEventListener("click", () => {
@@ -120,6 +120,271 @@ btn8.addEventListener("click", () => {
         out8.textContent += `ERROR FINAL capturado en el nivel superior: ${e.message}`;
     }
 });
+//Ejercicio09------------------------------------------------
+function cargarMensaje(callback) {
+  setTimeout(() => {
+    callback("Mensaje cargado");
+  }, 1000);
+}
+const btn9 = document.getElementById("btn9");
+const out9 = document.getElementById("output9");
+btn9.addEventListener("click", () => {
+  cargarMensaje((mensaje) => {
+    out9.textContent = mensaje;
+  });
+});
+
+//Ejercicio10------------------------------------------------
+function cargarUsuario(callback) {
+  const tiempo = Math.floor(Math.random() * (1500 - 800 + 1)) + 800;
+  setTimeout(() => {
+    const usuario = {
+      id: 1,
+      nombre: "Juancito"
+    };
+    callback(usuario);
+  }, tiempo);
+}
+const btn10 = document.getElementById("btn10");
+const out10 = document.getElementById("output10");
+btn10.addEventListener("click", () => {
+  cargarUsuario((user) => {
+    out10.textContent = `Usuario cargado: ${user.nombre} (ID: ${user.id})`;
+  });
+});
+
+//Ejercicio11------------------------------------------------
+function dividirAsync(a, b, callback) {
+  setTimeout(() => {
+    if (b === 0) {
+      callback(new Error("No se puede dividir entre cero"), null);
+    } else {
+      callback(null, a / b);
+    }
+  }, 1500);
+}
+const btn11 = document.getElementById("btn11");
+const out11 = document.getElementById("output11");
+btn11.addEventListener("click", () => {
+  const a = Number(document.getElementById("numA11").value);
+  const b = Number(document.getElementById("numB11").value);
+  if (isNaN(a) || isNaN(b)) {
+    out11.textContent = "Por favor ingresa números válidos";
+    return;
+  }
+  dividirAsync(a, b, (error, resultado) => {
+    if (error) {
+      out11.textContent = error.message;
+    } else {
+      out11.textContent = `Resultado: ${resultado}`;
+    }
+  });
+});
 
 
+//Ejercicio12------------------------------------------------
+function procesarLista(lista, callbackFinal) {
+  let procesados = 0;
+  lista.forEach((numero) => {
+    const tiempo = Math.floor(Math.random() * (1500 - 500 + 1)) + 500;
+    setTimeout(() => {
+      console.log(`Procesando ${numero}...`);
+      procesados++;
+      if (procesados === lista.length) {
+        callbackFinal("Proceso completado");
+      }
+    }, tiempo);
+  });
+}
+const btn12 = document.getElementById("btn12");
+const out12 = document.getElementById("output12");
+btn12.addEventListener("click", () => {
+  const numeros = [3, 7, 1, 9, 4];
+  procesarLista(numeros, (mensaje) => {
+    out12.textContent = mensaje;
+  });
+});
 
+//Ejercicio13------------------------------------------------
+function cargarMensajePromise() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Mensaje cargado");
+    }, 1000);
+  });
+}
+const btn13 = document.getElementById("btn13");
+const out13 = document.getElementById("output13");
+btn13.addEventListener("click", () => {
+  cargarMensajePromise().then((mensaje) => {
+    out13.textContent = mensaje;
+  });
+});
+
+//Ejercicio14------------------------------------------------
+function cargarUsuarioPromise() {
+  return new Promise((resolve) => {
+    const tiempo = Math.floor(Math.random() * (1500 - 800 + 1)) + 800;
+    setTimeout(() => {
+      const usuario = {
+        id: 1,
+        nombre: "Juancito"
+      };
+      resolve(usuario);
+    }, tiempo);
+  });
+}
+const btn14 = document.getElementById("btn14");
+const out14 = document.getElementById("output14");
+btn14.addEventListener("click", () => {
+  cargarUsuarioPromise().then((user) => {
+    out14.textContent = `Usuario cargado: ${user.nombre} (ID: ${user.id})`;
+  });
+});
+
+// Ejercicio 15 ------------------------------------------------
+function dividirAsyncPromise(a, b) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (b === 0) {
+        reject(new Error("No se puede dividir entre cero"));
+      } else {
+        resolve(a / b);
+      }
+    }, 1500);
+  });
+}
+const btn15 = document.getElementById("btn15");
+const out15 = document.getElementById("output15");
+btn15.addEventListener("click", () => {
+  const a = Number(document.getElementById("numA15").value);
+  const b = Number(document.getElementById("numB15").value);
+  if (isNaN(a) || isNaN(b)) {
+    out15.textContent = "Por favor ingresa números válidos";
+    return;
+  }
+  dividirAsyncPromise(a, b)
+    .then((resultado) => {
+      out15.textContent = `Resultado: ${resultado}`;
+    })
+    .catch((error) => {
+      out15.textContent = error.message;
+    });
+});
+
+
+//Ejercicio16------------------------------------------------
+function procesarListaPromise(lista) {
+  return new Promise((resolve) => {
+    let tareas = lista.map((numero) => {
+      const tiempo = Math.floor(Math.random() * (1500 - 500 + 1)) + 500;
+      return new Promise((res) => {
+        setTimeout(() => {
+          console.log(`Procesando ${numero}...`);
+          res();
+        }, tiempo);
+      });
+    });
+    Promise.all(tareas).then(() => {
+      resolve("Proceso completado");
+    });
+  });
+}
+const btn16 = document.getElementById("btn16");
+const out16 = document.getElementById("output16");
+btn16.addEventListener("click", () => {
+  const numeros = [3, 7, 1, 9, 4];
+  procesarListaPromise(numeros).then((mensaje) => {
+    out16.textContent = mensaje;
+  });
+});
+
+//Ejercicio17------------------------------------------------
+function cargarMensajeAsync() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Mensaje cargado");
+    }, 1000);
+  });
+}
+const btn17 = document.getElementById("btn17");
+const out17 = document.getElementById("output17");
+btn17.addEventListener("click", async () => {
+  const mensaje = await cargarMensajeAsync();
+  out17.textContent = mensaje;
+});
+
+//Ejercicio18------------------------------------------------
+function cargarUsuarioAsync() {
+  return new Promise((resolve) => {
+    const tiempo = Math.floor(Math.random() * (1500 - 800 + 1)) + 800;
+    setTimeout(() => {
+      const usuario = {
+        id: 1,
+        nombre: "Juancito"
+      };
+      resolve(usuario);
+    }, tiempo);
+  });
+}
+const btn18 = document.getElementById("btn18");
+const out18 = document.getElementById("output18");
+btn18.addEventListener("click", async () => {
+  const user = await cargarUsuarioAsync();
+  out18.textContent = `Usuario cargado: ${user.nombre} (ID: ${user.id})`;
+});
+
+// Ejercicio 19 ------------------------------------------------
+function dividirAsyncAwait(a, b) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (b === 0) {
+        reject(new Error("No se puede dividir entre cero"));
+      } else {
+        resolve(a / b);
+      }
+    }, 1500);
+  });
+}
+const btn19 = document.getElementById("btn19");
+const out19 = document.getElementById("output19");
+btn19.addEventListener("click", async () => {
+  const a = Number(document.getElementById("numA19").value);
+  const b = Number(document.getElementById("numB19").value);
+  if (isNaN(a) || isNaN(b)) {
+    out19.textContent = "Por favor ingresa números válidos";
+    return;
+  }
+  try {
+    const resultado = await dividirAsyncAwait(a, b);
+    out19.textContent = `Resultado: ${resultado}`;
+  } catch (error) {
+    out19.textContent = error.message;
+  }
+});
+
+
+//Ejercicio20------------------------------------------------
+function procesarNumeroAsync(numero) {
+  return new Promise((resolve) => {
+    const tiempo = Math.floor(Math.random() * (1500 - 500 + 1)) + 500;
+
+    setTimeout(() => {
+      console.log(`Procesando ${numero}...`);
+      resolve();
+    }, tiempo);
+  });
+}
+async function procesarListaAsync(lista) {
+  for (const numero of lista) {
+    await procesarNumeroAsync(numero);
+  }
+  return "Proceso completado";
+}
+const btn20 = document.getElementById("btn20");
+const out20 = document.getElementById("output20");
+btn20.addEventListener("click", async () => {
+  const numeros = [3, 7, 1, 9, 4];
+  const mensaje = await procesarListaAsync(numeros);
+  out20.textContent = mensaje;
+});
