@@ -90,3 +90,62 @@ async function Ejecutar08() {
   }
 }
 document.getElementById("Ejecutar08").addEventListener("click", Ejecutar08);
+
+//Ejercicio10-------------------------------------------------------------------
+const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+document.getElementById("btnValidar").addEventListener("click", () => {
+    const pwd = document.getElementById("pwd").value;
+    const res = document.getElementById("resultado");
+
+    if (re.test(pwd)) {
+        res.textContent = "Contraseña válida ";
+    } else {
+        res.textContent = "Contraseña inválida  (Debe tener 8 caracteres, 1 mayúscula, 1 minúscula y 1 número)";
+    }
+});
+//Ejercicio11---------------------------------------------------------------------
+const reURL = /https:\/\/[^\s/$.?#].[^\s]*/gi;
+document.getElementById("btnBuscar").addEventListener("click", () => {
+    const texto = document.getElementById("texto").value;
+    const resultado = document.getElementById("resultado");
+    const urls = texto.match(reURL);
+    if (urls && urls.length > 0) {
+        resultado.textContent = "URLs seguras encontradas:\n" + urls.join("\n");
+    } else {
+        resultado.textContent = "No se encontraron URLs seguras.";
+    }
+});
+//Ejercicio12-------------------------------------------------------
+const reHTML = /<[^>]*>/g;
+
+document.getElementById("btnQuitar").addEventListener("click", () => {
+    const texto = document.getElementById("texto").value;
+    const resultado = document.getElementById("resultado");
+    const limpio = texto.replace(reHTML, "");
+    resultado.textContent = limpio;
+});
+
+//Ejerciciio13-------------------------------------------------------
+const reOraciones = /[.!?]+/;
+
+document.getElementById("btnDividir").addEventListener("click", () => {
+    const texto = document.getElementById("texto").value;
+    const resultado = document.getElementById("resultado");
+    const partes = texto.split(reOraciones).filter(p => p.trim() !== "");
+
+    resultado.textContent = "[" + partes.join(" | ") + "]";
+});
+
+//Ejercicio14---------------------------------------------------
+const reFecha = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
+document.getElementById("btnValidarFecha").addEventListener("click", () => {
+    const fecha = document.getElementById("fecha").value;
+    const resultado = document.getElementById("resultado");
+    if (reFecha.test(fecha)) {
+        resultado.textContent = "Formato válido ";
+    } else {
+        resultado.textContent = "Formato inválido(use dd/mm/yyyy)";
+    }
+});
+
+
