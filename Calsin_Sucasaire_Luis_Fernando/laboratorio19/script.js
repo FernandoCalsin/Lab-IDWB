@@ -248,7 +248,6 @@ async function ejecutar12() {
 document.getElementById("ejecutar13").addEventListener("click", () => {
   ejecutar13();
 });
-
 async function ejecutar13() {
   const entrada = document.getElementById("pokemonInput13").value.trim().toLowerCase();
 
@@ -256,7 +255,6 @@ async function ejecutar13() {
     document.getElementById("resultado13").innerHTML = "<p>Ingrese un nombre o ID válido.</p>";
     return;
   }
-
   try {
     const respuesta = await fetch(`https://pokeapi.co/api/v2/pokemon/${entrada}`);
     const data = await respuesta.json();
