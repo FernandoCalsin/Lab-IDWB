@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de Equipos</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <h1> Equipos de Fútbol</h1>
+
+  <section id="formulario">
+    <h2>Registrar nuevo equipo</h2>
+    <form id="form-equipo">
+      <input type="text" name="nombre" placeholder="Nombre del equipo" required>
+      <input type="text" name="ciudad" placeholder="Ciudad" required>
+      <input type="number" name="nivelAtaque" min="1" max="10" placeholder="Nivel de ataque" required>
+      <input type="number" name="nivelDefensa" min="1" max="10" placeholder="Nivel de defensa" required>
+      <button type="submit">Registrar</button>
+    </form>
+  </section>
+
+  <section id="lista">
+    <h2>Equipos registrados</h2>
+    <ul id="equipos"></ul>
+  </section>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
